@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.atcmanagement.HomeView">
+   <children>
+      <BorderPane layoutX="1.0" layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1080.0">
+         <top>
+            <MenuBar fx:id="menu_bar" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="atc_view_btn" mnemonicParsing="false" onAction="#atcView" text="ATCs" />
+                      <MenuItem fx:id="subscribers_view_btn" mnemonicParsing="false" onAction="#subscribersView" text="Subscribers" />
+                      <MenuItem fx:id="phones_view_btn" mnemonicParsing="false" onAction="#phonesView" text="Phones" />
+                      <MenuItem fx:id="payments_view_btn" mnemonicParsing="false" onAction="#paymentsView" text="Payments" />
+                      <MenuItem fx:id="inter_calls_view_btn" mnemonicParsing="false" onAction="#InterCallsView" text="Intercity calls" />
+                      <MenuItem fx:id="conn_requests_view_btn" mnemonicParsing="false" onAction="#connRequestsView" text="Connection requests" />
+                      <MenuItem fx:id="free_numbers_view_btn" mnemonicParsing="false" onAction="#freeNumbersView" text="Free numbers" />
+                      <MenuItem fx:id="exit_btn" mnemonicParsing="false" onAction="#exit" text="Exit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Queries">
+                  <items>
+                    <MenuItem fx:id="query1_view_btn" mnemonicParsing="false" onAction="#query1View" text="Find beneficiary subscribers percentage" />
+                      <MenuItem fx:id="query2_view_btn" mnemonicParsing="false" onAction="#query2View" text="Count subscribers" />
+                      <MenuItem fx:id="query3_view_btn" mnemonicParsing="false" onAction="#query3View" text="Find debtors" />
+                      <MenuItem fx:id="query4_view_btn" mnemonicParsing="false" onAction="#query4View" text="View free phone numbers" />
+                      <MenuItem fx:id="query5_view_btn" mnemonicParsing="false" onAction="#query5View" text="Find public phones" />
+                      <MenuItem fx:id="query6_view_btn" mnemonicParsing="false" onAction="#query6View" text="Find subscribers by phone number" />
+                      <MenuItem fx:id="query7_view_btn" mnemonicParsing="false" onAction="#query7View" text="Sort ATCs by total debt" />
+                      <MenuItem fx:id="query8_view_btn" mnemonicParsing="false" onAction="#query8View" text="Find 10 most called cities" />
+                      <MenuItem fx:id="query9_view_btn" mnemonicParsing="false" onAction="#query9View" text="Find parallel phones" />
+                  </items>
+                </Menu>
+                <Menu fx:id="script_menu" mnemonicParsing="false" text="Scripting">
+                  <items>
+                    <MenuItem fx:id="script_view_btn" mnemonicParsing="false" onAction="#scriptView" text="Run SQL script" />
+                  </items>
+                </Menu>
+                  <Menu fx:id="admin_menu" mnemonicParsing="false" text="Administration">
+                      <items>
+                          <MenuItem fx:id="users_view_btn" mnemonicParsing="false" onAction="#usersView" text="Manage users" />
+                      </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="660.0" text="Welcome to ATC management system" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Label>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

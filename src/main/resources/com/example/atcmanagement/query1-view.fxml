@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.atcmanagement.Query1View">
+
+    <children>
+        <BorderPane layoutX="1.0" layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1080.0">
+            <top>
+                <MenuBar fx:id="menu_bar" BorderPane.alignment="CENTER">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem fx:id="atc_view_btn" mnemonicParsing="false" onAction="#atcView" text="ATCs" />
+                                <MenuItem fx:id="subscribers_view_btn" mnemonicParsing="false" onAction="#subscribersView" text="Subscribers" />
+                                <MenuItem fx:id="phones_view_btn" mnemonicParsing="false" onAction="#phonesView" text="Phones" />
+                                <MenuItem fx:id="payments_view_btn" mnemonicParsing="false" onAction="#paymentsView" text="Payments" />
+                                <MenuItem fx:id="inter_calls_view_btn" mnemonicParsing="false" onAction="#InterCallsView" text="Intercity calls" />
+                                <MenuItem fx:id="conn_requests_view_btn" mnemonicParsing="false" onAction="#connRequestsView" text="Connection requests" />
+                                <MenuItem fx:id="free_numbers_view_btn" mnemonicParsing="false" onAction="#freeNumbersView" text="Free numbers" />
+                                <MenuItem fx:id="exit_btn" mnemonicParsing="false" onAction="#exit" text="Exit" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Queries">
+                            <items>
+                                <MenuItem fx:id="query1_view_btn" mnemonicParsing="false" onAction="#query1View" text="Find beneficiary subscribers percentage" />
+                                <MenuItem fx:id="query2_view_btn" mnemonicParsing="false" onAction="#query2View" text="Count subscribers" />
+                                <MenuItem fx:id="query3_view_btn" mnemonicParsing="false" onAction="#query3View" text="Find debtors" />
+                                <MenuItem fx:id="query4_view_btn" mnemonicParsing="false" onAction="#query4View" text="View free phone numbers" />
+                                <MenuItem fx:id="query5_view_btn" mnemonicParsing="false" onAction="#query5View" text="Find public phones" />
+                                <MenuItem fx:id="query6_view_btn" mnemonicParsing="false" onAction="#query6View" text="Find subscribers by phone number" />
+                                <MenuItem fx:id="query7_view_btn" mnemonicParsing="false" onAction="#query7View" text="Sort ATCs by total debt" />
+                                <MenuItem fx:id="query8_view_btn" mnemonicParsing="false" onAction="#query8View" text="Find 10 most called cities" />
+                                <MenuItem fx:id="query9_view_btn" mnemonicParsing="false" onAction="#query9View" text="Find parallel phones" />
+                            </items>
+                        </Menu>
+                        <Menu fx:id="script_menu" mnemonicParsing="false" text="Scripting">
+                            <items>
+                                <MenuItem fx:id="script_view_btn" mnemonicParsing="false" onAction="#scriptView" text="Run SQL script" />
+                            </items>
+                        </Menu>
+                        <Menu fx:id="admin_menu" mnemonicParsing="false" text="Administration">
+                            <items>
+                                <MenuItem fx:id="users_view_btn" mnemonicParsing="false" onAction="#usersView" text="Manage users" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </top>
+            <center>
+                <VBox alignment="TOP_CENTER">
+               <children>
+                  <Label text="Beneficiary subscribers percentage">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="for_selected_atc_radio" mnemonicParsing="false" onAction="#forSelATC" text="For selected ATC">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="20.0" top="45.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="for_all_radio" layoutX="499.0" layoutY="55.0" mnemonicParsing="false" onAction="#forAllATC" text="For all ATCs">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" top="45.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="for_selected_district_radio" layoutX="447.0" layoutY="55.0" mnemonicParsing="false" onAction="#forSelDistrict" text="For selected district">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" top="45.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="for_selected_atc_type_radio" layoutX="641.0" layoutY="55.0" mnemonicParsing="false" onAction="#forSelType" text="For selected ATC type">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" top="45.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <GridPane prefWidth="1080.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="535.0" minWidth="10.0" prefWidth="438.0000305175781" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="677.9999694824219" minWidth="10.0" prefWidth="641.9999694824219" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="text_box_lbl" GridPane.halignment="RIGHT">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets right="15.0" />
+                           </padding></Label>
+                        <Label fx:id="type_lbl" text="Select type:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets right="15.0" />
+                           </padding></Label>
+                        <TextField fx:id="text_box" maxWidth="-Infinity" prefHeight="25.0" prefWidth="260.0" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="15.0" />
+                           </GridPane.margin></TextField>
+                        <ChoiceBox fx:id="choice_box" maxWidth="-Infinity" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="15.0" />
+                           </GridPane.margin></ChoiceBox>
+                     </children>
+                  </GridPane>
+                  <HBox alignment="TOP_CENTER" prefHeight="61.0" prefWidth="1080.0">
+                     <children>
+                        <Label fx:id="error_lbl" textFill="RED">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="25.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="97.0" prefWidth="1080.0">
+                     <children>
+                        <Button fx:id="submit_btn" mnemonicParsing="false" onAction="#submit" prefHeight="39.0" prefWidth="90.0" text="Submit">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Beneficiary:" GridPane.halignment="RIGHT">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="15.0" text="Non-beneficiary:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="beneficiary_lbl" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="non_beneficiary_lbl" layoutX="550.0" layoutY="15.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children></VBox>
+            </center>
+        </BorderPane>
+    </children>
+
+</AnchorPane>
